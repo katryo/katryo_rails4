@@ -9,7 +9,7 @@ browserify = require 'browserify'
 
 gulp.task 'js', ->
   browserify
-    entries: ['./bower_components/jquery/dist/jquery.min.js', './app/assets/javascripts/welcome.js']
+    entries: ['./bower_components/jquery/dist/jquery.min', './app/assets/javascripts/welcome.js']
     extensions: ['.coffee', '.js']
   .transform 'coffeeify'
   .transform 'debowerify'
