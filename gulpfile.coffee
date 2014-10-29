@@ -9,13 +9,14 @@ browserify = require 'browserify'
 
 gulp.task 'js', ->
   browserify
-    entries: ['./app/initialize.coffee']
+    entries: ['./bower_components/jquery/dist/jquery.min.js', './app/assets/javascripts/welcome.js']
     extensions: ['.coffee', '.js']
   .transform 'coffeeify'
+  .transform 'debowerify'
   .bundle()
   .pipe plumber()
   .pipe source 'app.js'
-  .pipe gulp.dest 'public'
+  .pipe gulp.dest './public/javascripts'
 
 gulp.task 'vendor', ->
   bowerFiles()
@@ -25,16 +26,20 @@ gulp.task 'vendor', ->
 
 gulp.task 'css', ->
   gulp
-    .src './app/styles/*.scss'
+    .src './app/assets/stylesheets/*.scss'
     .pipe plumber()
     .pipe sass()
     .pipe gulp.dest './public/css'
 
+gulp.task 'images_copy', ->
+  gulp
+    .src './app/assets/images/**'
+    .pipe gulp.dest './public/images'
+
 gulp.task 'watch', ['build'], ->
-  gulp.watch 'app/**/*.coffee', ['js']
-  gulp.watch 'app/**/*.jade', ['js']
-  gulp.watch 'app/styles/**/*.scss', ['css']
+  gulp.watch 'app/assets/javascripts/*.coffee', ['js']
+  gulp.watch 'app/assets/stylesheets/*.scss', ['css']
   gulp.watch 'bower_components/**/*.js', ['vendor']
 
-gulp.task 'build', ['vendor', 'js', 'css']
+gulp.task 'build', ['vendor', 'js', 'css', 'images_copy']
 gulp.task 'default', ['build']

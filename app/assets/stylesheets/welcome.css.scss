@@ -8,7 +8,7 @@
 
 @mixin tape{
   @media screen and (min-width: 768px) {
-    content: url(<%= asset_path('tape2.png') %>);
+    content: url('/assets/tape2.png');
     position: absolute;
     top: -10%;
     left: 10%;
@@ -148,17 +148,8 @@ right: 0%;
 }
 
 body {
-  background: url(<%= asset_path('retina_wood.png') %>) ;
+  background: url('/assets/retina_wood.png');
 }
-
-.rice-paper{
-  background: url(<%= asset_path('ricepaper2.png') %>) ;
-}
-
-.paper-3{
-  background: url(<%= asset_path('paper_3.png') %>) ;
-}
-
 
 div.paper {
   margin: 40px 0;
