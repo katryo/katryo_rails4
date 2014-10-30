@@ -26,7 +26,7 @@ gulp.task 'css', ->
     .pipe concat('app.css')
     .pipe gulp.dest './tmp/assets/css'
 
-gulp.task 'rev', ['js', 'css', 'images'], ->
+gulp.task 'rev', ['js', 'css', 'images', 'clean_before_rev'], ->
   gulp
     .src ['./tmp/assets/css/*.css', './tmp/assets/javascripts/*.js', './tmp/assets/images/**']
     .pipe rev()
@@ -39,7 +39,10 @@ gulp.task 'images', ->
     .src './app/assets/images/*.*'
     .pipe gulp.dest './tmp/assets/images'
 
-gulp.task 'clean', ['rev'] , (callback) ->
+gulp.task 'clean_before_rev', (callback) ->
+  rimraf('./public/assets', callback)
+
+gulp.task 'clean_after_rev', ['rev'] , (callback) ->
   rimraf('./tmp/assets', callback)
 
 gulp.task 'watch', ['build'], ->
@@ -47,5 +50,5 @@ gulp.task 'watch', ['build'], ->
   gulp.watch 'app/assets/stylesheets/*.scss', ['css', 'rev']
   gulp.watch 'app/assets/images/*.*', ['images', 'rev']
 
-gulp.task 'build', ['js', 'css', 'images', 'rev', 'clean']
+gulp.task 'build', ['js', 'css', 'images', 'rev', 'clean_after_rev']
 gulp.task 'default', ['build']
