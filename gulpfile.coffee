@@ -1,15 +1,12 @@
 gulp       = require 'gulp'
-rename     = require 'gulp-rename'
 plumber    = require 'gulp-plumber'
-concat     = require 'gulp-concat'
 sass       = require 'gulp-sass'
-bowerFiles = require "gulp-bower-files"
 source     = require 'vinyl-source-stream'
 browserify = require 'browserify'
 
 gulp.task 'js', ->
   browserify
-    entries: ['./app/assets/javascripts/app.coffee']
+    entries: ['./app/assets/javascripts/entry.coffee']
     extensions: ['.coffee']
   .transform 'debowerify'
   .bundle()
