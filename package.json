@@ -30,6 +30,7 @@
     "gulp-buffer": "0.0.2",
     "gulp-concat": "^2.4.1",
     "gulp-rev": "^2.0.1",
+    "gulp-rev-all": "^0.7.1",
     "gulp-rev-rails-manifest": "0.0.1",
     "gulp-sass": "^1.2.2",
     "vinyl-source-stream": "^1.0.0"

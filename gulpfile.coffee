@@ -1,8 +1,10 @@
 gulp       = require 'gulp'
 plumber    = require 'gulp-plumber'
 sass       = require 'gulp-sass'
+concat = require 'gulp-concat'
 buffer = require 'gulp-buffer'
 rev        = require 'gulp-rev'
+manifest   = require 'gulp-rev-rails-manifest'
 source     = require 'vinyl-source-stream'
 browserify = require 'browserify'
 
@@ -16,14 +18,22 @@ gulp.task 'js', ->
   .pipe source 'app.js'
   .pipe buffer()
   .pipe rev()
-  .pipe gulp.dest './public/javascripts'
+  .pipe gulp.dest './public/assets'
+  .pipe manifest()
+  .pipe gulp.dest './public/assets'
 
 gulp.task 'css', ->
   gulp
     .src './app/assets/stylesheets/*.scss'
     .pipe plumber()
     .pipe sass()
-    .pipe gulp.dest './public/css'
+    .pipe concat('app.css')
+    .pipe buffer()
+    .pipe rev()
+    .pipe gulp.dest './public/assets'
+    .pipe manifest()
+    .pipe gulp.dest './public/assets'
+
 
 gulp.task 'images', ->
   gulp

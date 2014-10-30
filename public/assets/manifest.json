@@ -1,0 +1,12 @@
+{
+  "files": {
+    "app-93316cc4.js": {
+      "logical_path": "app.js",
+      "size": 295798,
+      "digest": "93316cc4"
+    }
+  },
+  "assets": {
+    "app.js": "app-93316cc4.js"
+  }
+}
