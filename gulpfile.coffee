@@ -1,6 +1,8 @@
 gulp       = require 'gulp'
 plumber    = require 'gulp-plumber'
 sass       = require 'gulp-sass'
+buffer = require 'gulp-buffer'
+rev        = require 'gulp-rev'
 source     = require 'vinyl-source-stream'
 browserify = require 'browserify'
 
@@ -12,6 +14,8 @@ gulp.task 'js', ->
   .bundle()
   .pipe plumber()
   .pipe source 'app.js'
+  .pipe buffer()
+  .pipe rev()
   .pipe gulp.dest './public/javascripts'
 
 gulp.task 'css', ->
