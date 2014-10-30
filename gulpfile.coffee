@@ -20,7 +20,7 @@ gulp.task 'js', ->
 
 gulp.task 'css', ->
   gulp
-    .src './app/assets/stylesheets/*.scss'
+    .src ['./app/assets/stylesheets/*.scss', './bower_components/bootstrap-sass/dist/css/bootstrap.min.css']
     .pipe plumber()
     .pipe sass()
     .pipe concat('app.css')

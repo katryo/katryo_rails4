@@ -1,4 +1,5 @@
 $ = require('jquery')
 _ = require('underscore')
+require('bootstrap-sass')
 console.log($('.span'))
 console.log(_)

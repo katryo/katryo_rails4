@@ -21,15 +21,16 @@ npmは入っている前提。
 #### gulp
 
 - [x] assets以下の画像・CSSファイルをpublicにコピーする
-- [ ] coffeeをjsにする
-- [ ] bower_componentsのdist内にあるjsと自分の作ったjsファイルを、依存関係を考慮しながら繋げて、app.jsにして、public/javascripts以下に置く
-- [ ] ファイルが更新されるたび、上記のことを行う
-
+- [x] coffeeをjsにする
+- [x] bower_componentsのdist内にあるjsと自分の作ったjsファイルを、依存関係を考慮しながら繋げて、app.jsにして、tmp/javascripts以下に置く
+- [x] ファイルが更新されるたび、上記のことを行う
+- [ ] assets以下のファイルにハッシュ値をつける
+- [ ] image_tagなどのメソッドで、ハッシュ値のついたファイルへのリンクにする
 
 
 #### browserify
 
-- [ ] 依存関係を考慮しながら、jsを繋げて1つのファイルにする
+- [x] 依存関係を考慮しながら、jsを繋げて1つのファイルにする
 
 #### Rails
 
@@ -37,8 +38,7 @@ npmは入っている前提。
 
 ### やらないこと
 
-- [ ] assets以下のファイルにハッシュ値をつける
-- [ ] image_tagなどのメソッドで、ハッシュ値のついたファイルへのリンクにする
+- [ ] css.erbのasset_pathを置き換える。html.erbはできるけどcssは無理だった
 - [ ] uglify
 
 ## bower
