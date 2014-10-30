@@ -25,6 +25,7 @@
   "devDependencies": {
     "browserify": "^6.2.0",
     "coffee-script": "^1.8.0",
+    "debowerify": "^0.9.1",
     "gulp-bower-files": "^0.2.7",
     "gulp-concat": "^2.4.1",
     "gulp-sass": "^1.2.2",
