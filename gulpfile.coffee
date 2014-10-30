@@ -9,9 +9,8 @@ browserify = require 'browserify'
 
 gulp.task 'js', ->
   browserify
-    entries: ['./bower_components/jquery/dist/jquery.min', './app/assets/javascripts/welcome.js']
-    extensions: ['.coffee', '.js']
-  .transform 'coffeeify'
+    entries: ['./app/assets/javascripts/app.coffee']
+    extensions: ['.coffee']
   .transform 'debowerify'
   .bundle()
   .pipe plumber()
@@ -22,7 +21,7 @@ gulp.task 'vendor', ->
   bowerFiles()
     .pipe plumber()
     .pipe concat('vendor.js')
-     .pipe gulp.dest('./public/javascripts')
+    #.pipe gulp.dest('./public/javascripts')
 
 gulp.task 'css', ->
   gulp

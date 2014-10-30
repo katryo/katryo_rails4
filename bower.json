@@ -13,7 +13,8 @@
     "test",
     "tests"
   ],
-  "devDependencies": {
-    "jquery": "~2.1.1"
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "backbone": "~1.1.2"
   }
 }
