@@ -17,12 +17,6 @@ gulp.task 'js', ->
   .pipe source 'app.js'
   .pipe gulp.dest './public/javascripts'
 
-gulp.task 'vendor', ->
-  bowerFiles()
-    .pipe plumber()
-    .pipe concat('vendor.js')
-    #.pipe gulp.dest('./public/javascripts')
-
 gulp.task 'css', ->
   gulp
     .src './app/assets/stylesheets/*.scss'
@@ -30,7 +24,7 @@ gulp.task 'css', ->
     .pipe sass()
     .pipe gulp.dest './public/css'
 
-gulp.task 'images_copy', ->
+gulp.task 'images', ->
   gulp
     .src './app/assets/images/**'
     .pipe gulp.dest './public/images'
@@ -38,7 +32,6 @@ gulp.task 'images_copy', ->
 gulp.task 'watch', ['build'], ->
   gulp.watch 'app/assets/javascripts/*.coffee', ['js']
   gulp.watch 'app/assets/stylesheets/*.scss', ['css']
-  gulp.watch 'bower_components/**/*.js', ['vendor']
 
-gulp.task 'build', ['vendor', 'js', 'css', 'images_copy']
+gulp.task 'build', ['js', 'css', 'images']
 gulp.task 'default', ['build']
