@@ -1,5 +1,5 @@
-$ = require('jquery')
+jquery = $ = window.jQuery = window.$ = require('jquery')
 _ = require('underscore')
 require('bootstrap-sass')
-console.log($('.span'))
+console.log($('window'))
 console.log(_)

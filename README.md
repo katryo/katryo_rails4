@@ -24,8 +24,8 @@ npmは入っている前提。
 - [x] coffeeをjsにする
 - [x] bower_componentsのdist内にあるjsと自分の作ったjsファイルを、依存関係を考慮しながら繋げて、app.jsにして、tmp/javascripts以下に置く
 - [x] ファイルが更新されるたび、上記のことを行う
-- [ ] assets以下のファイルにハッシュ値をつける
-- [ ] image_tagなどのメソッドで、ハッシュ値のついたファイルへのリンクにする
+- [x] assets以下のファイルにハッシュ値をつける
+- [x] image_tagなどのメソッドで、ハッシュ値のついたファイルへのリンクにする
 
 
 #### browserify
