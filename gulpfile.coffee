@@ -18,7 +18,7 @@ gulp.task 'js', ->
   .transform 'debowerify'
   .bundle()
   .pipe plumber()
-  .pipe source 'app.js'
+  .pipe source 'application.js'
   .pipe buffer()
   .pipe uglify()
   .pipe gulp.dest './public/javascripts'
@@ -29,15 +29,16 @@ gulp.task 'css', ->
     .pipe plumber()
     .pipe sass()
     .pipe minifyCSS({keepBreaks:false})
-    .pipe concat('app.css')
+    .pipe concat('application.css')
     .pipe gulp.dest './tmp/assets/css'
 
-gulp.task 'rev', ['css', 'clean_before_rev'], ->
+gulp.task 'rev', ['css', 'clean_before_rev', 'js'], ->
   gulp
-    .src ['./tmp/assets/css/*.css', './app/assets/images/*']
+    .src ['./tmp/assets/css/*.css', './app/assets/images/*', './public/assets/application.js']
     .pipe rev()
     .pipe gulp.dest './public/assets'
     .pipe manifest()
+    .pipe rev()
     .pipe gulp.dest './public/assets'
 
 gulp.task 'clean_before_rev', (callback) ->
@@ -45,6 +46,7 @@ gulp.task 'clean_before_rev', (callback) ->
 
 gulp.task 'clean_after_rev', ['rev'] , (callback) ->
   rimraf('./tmp/assets', callback)
+
 
 gulp.task 'watch', ['build'], ->
   gulp.watch 'app/assets/javascripts/*.coffee', ['js', 'rev']
